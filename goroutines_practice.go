@@ -11,7 +11,7 @@ func run(){
 func main(){
 
 	go run()
-	fmt.Println("Hello motherfucker!")
+	fmt.Println("Hello this is main")
 	// time.Sleep(1*time.Second)
 	go run()
 
