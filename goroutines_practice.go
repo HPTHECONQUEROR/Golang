@@ -2,17 +2,27 @@ package main
 
 import (
 	"fmt"
-	// "time"
+
+
 )
-func run(){
-	fmt.Println("I am executing!")
+
+func genNum(ch chan int){
+	for i := 1; i<6;i++{
+		ch <- i
+	}
+	close(ch)
 }
 
+
+
 func main(){
+	ch := make(chan int)
+	go genNum(ch)
+	
+	
+	for val:= range ch{
+		fmt.Print(val)
+	}
 
-	go run()
-	fmt.Println("Hello this is main")
-	// time.Sleep(1*time.Second)
-	go run()
-
+	
 }
